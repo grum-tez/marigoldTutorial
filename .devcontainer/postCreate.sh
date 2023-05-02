@@ -7,4 +7,8 @@ sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
 && sudo apt-get install -y tezos-client \
 && curl -LO https://taqueria.io/get/linux/taq \
 && chmod +x taq \
-&& sudo mv taq /usr/local/bin/
+&& sudo mv taq /usr/local/bin/ \
+&& taq init training \
+&& cd training \
+&& taq install @taqueria/plugin-ligo \
+&& echo "{}" esy.json
