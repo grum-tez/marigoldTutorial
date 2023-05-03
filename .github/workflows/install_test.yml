@@ -30,3 +30,7 @@ jobs:
         run: |
           echo "An error occurred while running the Dev Container Build and Run action"
           exit 1
+
+      - name: Print last 20 lines of log on failure
+        if: failure()
+        run: tail -n 20 /home/runner/work/_temp/_github_workflow/event.json
