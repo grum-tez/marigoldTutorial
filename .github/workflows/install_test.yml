@@ -23,7 +23,7 @@ jobs:
           runCmd: echo "Dev container is working correctly"
         
       - name: Print outcome
-        run: echo ${{steps.tb.outcome}}
+        run: "echo ${{steps.tb.outcome}}"
     
       - name: Check for errors
         if: steps.tb.outcome != 'success' }}
