@@ -16,13 +16,14 @@ jobs:
         run: ls -al
 
       - name: TestBuild
+        id: tb
         uses: devcontainers/ci@v0.3
         with:
           push: never
           runCmd: echo "Dev container is working correctly"
         
       - name: Print outcome
-        run: echo steps['TestBuild'].outcome
+        run: echo ${{steps.tb.outcome}}
     
       - name: Check for errors
         if: ${{ steps.TestBuild.outcome != 'success' }}
