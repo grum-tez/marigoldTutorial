@@ -21,12 +21,6 @@ jobs:
         push: never
         runCmd: echo "Dev container is working correctly"
 
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: my-build-artifact
-        path: path/to/artifact
-
     - name: Check for errors
       if: ${{ steps.devcontainer.outcome != 'success' }}
       run: |
