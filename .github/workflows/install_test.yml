@@ -9,20 +9,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-    - name: List contents of repository
-      run: ls -al
+      - name: List contents of repository
+        run: ls -al
 
-    - name: Test-build devcontainer
-      uses: devcontainers/ci@v0.3
-      with:
-        push: never
-        runCmd: echo "Dev container is working correctly"
-
-    - name: Check for errors
-      if: ${{ steps.Test-build_devcontainer.outcome != 'success' }}
-      run: |
-        echo "An error occurred while running the Dev Container Build and Run action"
-        exit 1
+      - name: TestBuild
+        uses: devcontainers/ci@v0.3
+        with:
+          push: never
+          runCmd: echo "Dev container is working correctly"
+        
+      - name: Print outcome
+        run: echo steps['TestBuild'].outcome
+    
+      - name: Check for errors
+        if: ${{ steps.TestBuild.outcome != 'success' }}
+        run: |
+          echo "An error occurred while running the Dev Container Build and Run action"
+          exit 1
