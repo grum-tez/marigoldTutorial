@@ -22,7 +22,7 @@ jobs:
         runCmd: echo "Dev container is working correctly"
 
     - name: Check for errors
-      if: ${{ steps.Test-build devcontainer.outcome != 'success' }}
+      if: ${{ steps.Test-build_devcontainer.outcome != 'success' }}
       run: |
         echo "An error occurred while running the Dev Container Build and Run action"
         exit 1
