@@ -15,14 +15,14 @@ jobs:
     - name: List contents of repository
       run: ls -al
 
-    - name: Pre-build dev container image
+    - name: Test-build devcontainer
       uses: devcontainers/ci@v0.3
       with:
         push: never
         runCmd: echo "Dev container is working correctly"
 
     - name: Check for errors
-      if: ${{ steps.devcontainer.outcome != 'success' }}
+      if: ${{ steps.Test-build devcontainer.outcome != 'success' }}
       run: |
         echo "An error occurred while running the Dev Container Build and Run action"
         exit 1
