@@ -14,6 +14,9 @@ jobs:
       with:
         push: always
 
+    - name: List contents of repository
+      run: ls -al
+
     - name: Check for errors
       if: ${{ steps.devcontainer.outcome != 'success' }}
       run: echo "An error occurred while running the Dev Container Build and Run action"
