@@ -10,5 +10,7 @@ sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
 && sudo mv taq /usr/local/bin/ \
 && taq init training \
 && cd training \
-&& taq install @taqueria/plugin-ligo \
-&& echo "{}" esy.json
+&& taq install @taqueria/plugin-ligo@next \
+&& echo "{}" esy.json \
+&& TAQ_LIGO_IMAGE=ligolang/ligo:0.63.2 taq ligo --command "install @ligo/fa" \
+&& taq create contract nft.jsligo
