@@ -9,15 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
     - name: List contents of repository
       run: ls -al
-      
+
     - name: Pre-build dev container image
       uses: devcontainers/ci@v0.3
       with:
         push: always
-
-
 
     - name: Check for errors
       if: ${{ steps.devcontainer.outcome != 'success' }}
