@@ -26,7 +26,7 @@ jobs:
         run: echo "${{steps.tb.outcome}}"
     
       - name: Check for errors
-        if: steps.tb.outcome != 'success' }}
+        if: steps.tb.outcome != 'success'
         run: |
           echo "An error occurred while running the Dev Container Build and Run action"
           exit 1
