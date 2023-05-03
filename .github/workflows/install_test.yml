@@ -1,4 +1,4 @@
-name: Tutorial Install Test
+name: Tutorial Install Tests
 on:
   push:
   schedule:
