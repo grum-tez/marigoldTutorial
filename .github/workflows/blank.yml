@@ -19,6 +19,7 @@ jobs:
       uses: devcontainers/ci@v0.3
       with:
         push: always
+        runCmd: echo "Dev container is working correctly"
 
     - name: Check for errors
       if: ${{ steps.devcontainer.outcome != 'success' }}
