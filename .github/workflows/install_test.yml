@@ -1,4 +1,4 @@
-name: Tutorial Test
+name: Tutorial Install Test
 on:
   push:
   schedule:
@@ -18,9 +18,17 @@ jobs:
     - name: Pre-build dev container image
       uses: devcontainers/ci@v0.3
       with:
-        push: always
+        push: never
         runCmd: echo "Dev container is working correctly"
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-build-artifact
+        path: path/to/artifact
 
     - name: Check for errors
       if: ${{ steps.devcontainer.outcome != 'success' }}
-      run: echo "An error occurred while running the Dev Container Build and Run action"
+      run: |
+        echo "An error occurred while running the Dev Container Build and Run action"
+        exit 1
